@@ -1,0 +1,16 @@
+{
+  "name": "object-detection-from-yolo-to-tensorflow",
+  "version": "1.3.1",
+  "peerDependencies": {
+    "@angular/common": "*",
+    "@angular/core": "*",
+    "@tensorflow/tfjs": "^4.10.0"
+
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+
+  },
+
+  "sideEffects": false
+}

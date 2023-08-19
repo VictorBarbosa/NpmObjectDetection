@@ -1,0 +1,11 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/object-detection-from-yolo-to-tensorflow",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+
+  },
+  "allowedNonPeerDependencies": [
+    "@tensorflow/tfjs"
+  ]
+}

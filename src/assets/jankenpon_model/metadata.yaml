@@ -1,0 +1,15 @@
+description: Ultralytics best model (untrained)
+author: Ultralytics
+license: AGPL-3.0 https://ultralytics.com/license
+date: '2023-08-04T19:02:19.215590'
+version: 8.0.143
+stride: 32
+task: detect
+batch: 1
+imgsz:
+- 224
+- 224
+names:
+  0: Paper
+  1: Rock
+  2: Scissors
