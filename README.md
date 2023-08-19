@@ -1,28 +1,65 @@
-# object-detection-from-yolo-to-tensorflow
+#### English
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+This project serves as the foundational base for an NPM library named "object-detection-from-yolo-to-tensorflow". With this library, you can easily take your object detection model created using YOLO and exported to TensorFlow.js. You can generate predictions, create bounding boxes, and determine predicted classes. You can install it using the command `npm install object-detection-from-yolo-to-tensorflow`. The library provides the following methods:
 
-## Development server
+- `predict`: This method returns a Promise.
+- `predictObservable`: This method returns an Observable.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Additionally, it includes the following functions:
 
-## Code scaffolding
+- `getTypePredictedClass`: This function identifies the predicted class.
+- `createBoundingBox`: This function creates a bounding box.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+#### Français
 
-## Build
+Ce projet sert de base fondamentale pour une bibliothèque NPM appelée "object-detection-from-yolo-to-tensorflow". Avec cette bibliothèque, vous pouvez facilement prendre votre modèle de détection d'objets créé à l'aide de YOLO et exporté vers TensorFlow.js. Vous pouvez générer des prédictions, créer des boîtes englobantes et déterminer les classes prédites. Vous pouvez l'installer en utilisant la commande `npm install object-detection-from-yolo-to-tensorflow`. La bibliothèque propose les méthodes suivantes :
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- `predict` : Cette méthode renvoie une Promise.
+- `predictObservable` : Cette méthode renvoie un Observable.
 
-## Running unit tests
+De plus, elle inclut les fonctions suivantes :
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- `getTypePredictedClass` : Cette fonction identifie la classe prédite.
+- `createBoundingBox` : Cette fonction crée une boîte englobante.
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+#### Português
 
-## Further help
+Este projeto serve como base fundamental para uma biblioteca NPM chamada "object-detection-from-yolo-to-tensorflow". Com esta biblioteca, você pode facilmente utilizar o seu modelo de detecção de objetos criado usando YOLO e exportado para TensorFlow.js. Você pode gerar previsões, criar caixas delimitadoras e determinar as classes previstas. Você pode instalá-la usando o comando `npm install object-detection-from-yolo-to-tensorflow`. A biblioteca disponibiliza os seguintes métodos:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-# project-base-to-test-object-detection-from-yolo-to-tensorflow
+- `predict`: Este método retorna uma Promise.
+- `predictObservable`: Este método retorna um Observable.
+
+Além disso, ela inclui as seguintes funções:
+
+- `getTypePredictedClass`: Esta função identifica a classe prevista.
+- `createBoundingBox`: Esta função cria uma caixa delimitadora.
+
+
+******************************************************************
+
+```typescript
+// Example Usage with observable
+this.objectDetect.predictObservable(this.model, canvas, 0.2, 224, 224)
+    .pipe(tap(ret => {
+        if (ret) {
+            const CLASSES = ['orange', 'apple', 'banana'];
+            this.objectDetect.createBoundingBox(ret, true, CLASSES, true, canvas, 'blue', 2, true);
+            this.objectDetect.getTypePredictedClass(ret, CLASSES).forEach((cls: string) => {
+                this.predictText = cls;
+            });
+        }
+    })).subscribe();
+ 
+// Example Usage javascript
+this.objectDetect.predict(this.model, canvas, 0.2, 224, 224)
+    .then(ret => {
+        if (ret) {
+            const CLASSES = ['orange', 'apple', 'banana'];
+            this.objectDetect.createBoundingBox(ret, true, CLASSES, true, canvas, 'blue', 2, true);
+            this.objectDetect.getTypePredictedClass(ret, CLASSES).forEach((cls: string) => {
+                this.predictText = cls;
+            });
+        }
+    });
+```
